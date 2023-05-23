@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FizzBuzzGame</string>
+
+    <string name="first_string">First string:</string>
+    <string name="sec_string">Second string:</string>
+    <string name="first_integer">First integer:</string>
+    <string name="sec_integer">Second integer:</string>
+    <string name="limit">Max limit:</string>
+    <string name="cta_go">Go</string>
+
+    <string name="process_msg">Processing..</string>
+    <string name="general_error_msg">Unexpected error happened..</string>
+    <string name="first_string_msg">First string must be not empty</string>
+    <string name="sec_string_msg">Second string must be not empty</string>
+    <string name="first_integer_msg">First integer must be an integer</string>
+    <string name="sec_integer_msg">Second integer must be an integer</string>
+    <string name="limit_string_msg">Max limit must be an integer</string>
+</resources>

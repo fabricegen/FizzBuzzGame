@@ -1,0 +1,53 @@
+[versions]
+minSdkVersion = "24"
+compileSdkVersion = "33"
+targetSdkVersion = "33"
+
+composeKotlinCompilerExtensionVersion = "1.4.2"
+
+hiltVersion = "2.46"
+hiltCompilerVersion = "2.44"
+
+coreKtxVersion = '1.10.1'
+activityComposeVersion = '1.7.1'
+composeUiVersion = '1.4.3'
+lifecycleVersion = '2.6.1'
+material3Version = '1.1.0'
+navVersion = '2.5.3'
+navComposeVersion = '1.0.0'
+
+mockitoVersion = '4.9.0'
+mockitoKotlinVersion = '4.0.0'
+junitVersion = '4.13.2'
+kotlinCoroutinesVersion = '1.6.4'
+mockkVersion = '1.13.3'
+testExtJunitVersion = '1.1.5'
+
+[libraries]
+coreKtx = { module = "androidx.core:core-ktx", version.ref = "coreKtxVersion" }
+activityCompose = { module = "androidx.activity:activity-compose", version.ref = "activityComposeVersion" }
+composeUi = { module = "androidx.compose.ui:ui", version.ref = "composeUiVersion" }
+composeUiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "composeUiVersion" }
+composeMaterial = { module = "androidx.compose.material:material", version.ref = "composeUiVersion" }
+composeMaterial3 = { module = "androidx.compose.material3:material3", version.ref = "material3Version" }
+composeRuntimeLivedata = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "composeUiVersion" }
+lifecycleRuntimeCompose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleVersion" }
+lifecycleViewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleVersion" }
+lifecycleViewmodelCompose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleVersion" }
+navigationCompose = { module = "androidx.navigation:navigation-compose", version.ref = "navVersion" }
+hiltAndroid = { module = "com.google.dagger:hilt-android", version.ref = "hiltVersion" }
+hiltCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltCompilerVersion" }
+hiltNavCompose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "navComposeVersion" }
+
+junit = { module = "junit:junit", version.ref = "junitVersion" }
+coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinCoroutinesVersion" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
+
+testExtJunit = { module = "androidx.test.ext:junit", version.ref = "testExtJunitVersion" }
+composeUiTestJunit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "composeUiVersion" }
+composeUiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "composeUiVersion" }
+
+[bundles]
+hilt = ["hiltNavCompose", "hiltAndroid"]
+lifecycle = ["lifecycleRuntimeCompose", "lifecycleViewmodelCompose", "lifecycleViewmodel"]
+compose = ["composeUi", "composeUiTooling", "composeMaterial", "composeMaterial3", "composeRuntimeLivedata", "composeMaterial3"]
