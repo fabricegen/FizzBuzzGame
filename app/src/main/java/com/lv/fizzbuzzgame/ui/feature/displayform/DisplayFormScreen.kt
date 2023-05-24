@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Scaffold
-import androidx.compose.material.TopAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -38,6 +37,7 @@ import com.lv.fizzbuzzgame.R
 import com.lv.fizzbuzzgame.ui.common.SingleFlowEvent
 import com.lv.fizzbuzzgame.ui.common.compose.OutlinedEditTextField
 import com.lv.fizzbuzzgame.ui.common.compose.ProgressView
+import com.lv.fizzbuzzgame.ui.common.compose.TopAppBarView
 import com.lv.fizzbuzzgame.ui.domain.model.GameInputData
 import com.lv.fizzbuzzgame.ui.domain.model.GameInputId
 import com.lv.fizzbuzzgame.ui.feature.displayform.DisplayFormUiState.Error
@@ -116,13 +116,11 @@ fun DisplayFormScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(backgroundColor = MaterialTheme.colorScheme.primaryContainer,
-                title = {
-                    Text(
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                        text = stringResource(id = R.string.app_name)
-                    )
-                })
+            TopAppBarView(
+                backgroundColor = MaterialTheme.colorScheme.primaryContainer,
+                textColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                labelTextId = R.string.app_name
+            )
         },
         snackbarHost = {
             SnackbarHost(hostState = snackBarHostState)

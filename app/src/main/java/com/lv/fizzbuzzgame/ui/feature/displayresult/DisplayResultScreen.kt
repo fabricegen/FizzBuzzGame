@@ -8,17 +8,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.lv.fizzbuzzgame.R
+import com.lv.fizzbuzzgame.ui.common.compose.TopAppBarView
 
 @Composable
 fun DisplayResultRoute(
@@ -42,13 +41,11 @@ fun DisplayResultScreen(
     if (uiState is DisplayResultUiState.Success) {
         Scaffold(
             topBar = {
-                TopAppBar(backgroundColor = MaterialTheme.colorScheme.primaryContainer,
-                    title = {
-                        Text(
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            text = stringResource(id = R.string.app_name)
-                        )
-                    })
+                TopAppBarView(
+                    backgroundColor = MaterialTheme.colorScheme.primaryContainer,
+                    textColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    labelTextId = R.string.app_name
+                )
             }
         ) {
             LazyColumn {

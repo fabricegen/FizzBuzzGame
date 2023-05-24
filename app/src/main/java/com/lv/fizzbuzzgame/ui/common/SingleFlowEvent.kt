@@ -1,5 +1,9 @@
 package com.lv.fizzbuzzgame.ui.common
 
+/**
+ * Wrapper class around T
+ * Used to filter emit last value from `StateFlow` on resubscribe
+ */
 class SingleFlowEvent<out T>(private val content: T) {
     private var consumed = false
 
@@ -11,7 +15,5 @@ class SingleFlowEvent<out T>(private val content: T) {
             content
         }
     }
-
-    fun peek(): T = content
 }
 

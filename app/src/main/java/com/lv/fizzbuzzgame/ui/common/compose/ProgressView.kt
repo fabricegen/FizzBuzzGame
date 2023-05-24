@@ -18,12 +18,12 @@ fun ProgressView(
     text: String
 ) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CircularProgressIndicator() // or LinearProgressIndicator()
-        Spacer(modifier = Modifier.height(16.dp))
+        CircularProgressIndicator()
+        Spacer(modifier = modifier.height(16.dp))
         Text(text = text)
     }
 }
