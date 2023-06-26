@@ -1,0 +1,49 @@
+package com.lv.fizzbuzzgame.ui.feature.displayform
+
+import android.util.Log
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.viewModelFactory
+
+@Composable
+fun NamesRoute() {
+    val viewModel: NamesViewModel = hiltViewModel()
+    val state by viewModel.uiState.collectAsStateWithLifecycle()
+
+    val onButtonClick = remember(viewModel) { { viewModel.addName() } }
+    val onNameClick = remember(viewModel) { { viewModel.handleNameClick() } }
+
+    NameColumnWithButton(
+        names = state.names,
+        onButtonClick = onButtonClick,
+        onNameClick = onNameClick,
+    )
+}
+
+@Composable
+fun NameColumnWithButton(
+    names: List<String>,
+    onButtonClick: () -> Unit,
+    onNameClick: () -> Unit,
+) {
+    Column {
+        names.forEach {
+            CompositionTrackingName(name = it, onClick = onNameClick)
+        }
+        Button(onClick = onButtonClick) { Text("Add a Name") }
+    }
+}
+
+@Composable
+fun CompositionTrackingName(name: String, onClick: () -> Unit) {
+    Log.e("*******COMPOSED", name)
+    Text(name, modifier = Modifier.clickable(onClick = onClick))
+}

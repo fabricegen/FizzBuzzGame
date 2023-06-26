@@ -5,6 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.lv.fizzbuzzgame.ui.feature.displayform.DisplayFormRoute
+import com.lv.fizzbuzzgame.ui.feature.displayform.NamesRoute
 
 const val displayFormRoute = "display_form_route"
 
@@ -14,6 +15,6 @@ fun NavController.navigateToDisplayForm(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.displayFormScreen(onComplete: (String) -> Unit) {
     composable(route = displayFormRoute) {
-        DisplayFormRoute(onComplete = onComplete)
+        NamesRoute()
     }
 }
