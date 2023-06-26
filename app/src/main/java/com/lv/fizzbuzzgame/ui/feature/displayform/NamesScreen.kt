@@ -7,11 +7,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.viewModelFactory
+import com.lv.fizzbuzzgame.ui.common.ComposeLifecycleObserver
 
 @Composable
 fun NamesRoute() {
@@ -26,11 +25,15 @@ fun NamesRoute() {
     val onButtonClick = viewModel::addName
     val onNameClick = viewModel::handleNameClick
 
-
     NameColumnWithButton(
         names = state.names,
         onButtonClick = onButtonClick,
         onNameClick = onNameClick,
+    )
+
+    ComposeLifecycleObserver(
+        onStart = viewModel::onScreenLoaded,
+        onStop = viewModel::onScreenStopped
     )
 }
 

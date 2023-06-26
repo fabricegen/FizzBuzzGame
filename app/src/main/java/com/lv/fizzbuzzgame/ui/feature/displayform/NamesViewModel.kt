@@ -37,4 +37,12 @@ class NamesViewModel @Inject constructor(
     fun handleNameClick() {
 
     }
+
+    fun onScreenLoaded() {
+
+    }
+
+    fun onScreenStopped() {
+
+    }
 }
