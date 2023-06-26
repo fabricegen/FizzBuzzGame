@@ -18,8 +18,14 @@ fun NamesRoute() {
     val viewModel: NamesViewModel = hiltViewModel()
     val state by viewModel.uiState.collectAsStateWithLifecycle()
 
-    val onButtonClick = remember(viewModel) { { viewModel.addName() } }
-    val onNameClick = remember(viewModel) { { viewModel.handleNameClick() } }
+    // utilisation de remember pour les smarts recompositions
+//    val onButtonClick = remember(viewModel) { { viewModel.addName() } }
+//    val onNameClick = remember(viewModel) { { viewModel.handleNameClick() } }
+
+// OU l'utilisation methods references
+    val onButtonClick = viewModel::addName
+    val onNameClick = viewModel::handleNameClick
+
 
     NameColumnWithButton(
         names = state.names,

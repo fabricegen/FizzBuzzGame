@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
+@Stable
 @HiltViewModel
 class NamesViewModel @Inject constructor(
     private val dispatchers: CoroutineDispatchers
